@@ -1,0 +1,198 @@
+/* Container */
+.container {
+  max-width: 1550px;
+  padding-inline: 20px;
+}
+
+@media screen and (max-width: 575px) {
+  .container {
+    padding-inline: 10px;
+  }
+}
+
+/* Button */
+.buttonStyle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--button);
+  transition: var(--transition);
+  user-select: none;
+  border-radius: var(--br-sm);
+  padding-inline: var(--button-padding-inline);
+  padding-block: var(--button-padding-block);
+  white-space: nowrap;
+}
+
+.buttonStyleDisabled {
+  opacity: 0.4;
+}
+
+/** INPUTFIELD */
+.inputFieldLabelStyle {
+  font-size: var(--font-size-base);
+  font-weight: var(--bold-md);
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.errorMessageClassName {
+  min-height: 20px;
+  font-size: 12px;
+  letter-spacing: -0.5px;
+  text-align: center;
+  color: var(--error);
+  margin-top: 2px;
+}
+
+.inputFieldStyle,
+.inputFieldErrorStyle,
+.inputFieldSuccessStyle {
+  margin-top: 10px;
+  padding-block: var(--inner-padding-sm);
+  padding-inline: var(--inner-padding-md);
+  border-radius: var(--br-md);
+  background-color: #f6f6f6;
+  height: 70px;
+}
+
+.inputFieldStyle input,
+.inputFieldErrorStyle input,
+.inputFieldSuccessStyle input {
+  caret-color: var(--text-primary);
+  padding: 0;
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  font-weight: var(--bold-sm);
+}
+
+.inputFieldStyle input::placeholder,
+.inputFieldErrorStyle input::placeholder,
+.inputFieldSuccessStyle input::placeholder {
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  font-weight: var(--bold-sm);
+}
+
+/** SELECT */
+.selectClass {
+  border: var(--general-border);
+  padding: 15px;
+  min-width: 150px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  font-size: var(--font-size-sm);
+  border-radius: var(--br-md);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  background: var(--light);
+  height: 53px;
+}
+/* 
+
+.selectPlaceholderClass {
+  color: var(--text-primary);
+}
+
+.selectOpenedClass {
+  z-index: 9;
+  position: relative;
+  width: calc(100% + 1.9px);
+  left: -0.95px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  scrollbar-color: var(--text-primary) transparent; 
+  scrollbar-width: 2px;
+  background: var(--bg-select);
+}
+
+.selectOpenedClass::-webkit-scrollbar {
+  width: 2px; 
+}
+
+.selectOpenedClass::-webkit-scrollbar-thumb {
+  background-color: var(--text-primary);
+} */
+
+.selectOptionClass {
+  padding: 15px;
+  color: var(--text-primary);
+}
+
+.selectOptionClass:hover {
+  background-color: rgba(128, 128, 128, 0.226);
+}
+
+/* Modal */
+.magicModal {
+  padding: 28px 22px;
+  color: var(--text-primary);
+  animation: var(--fadeIn);
+  max-width: 500px;
+  background-color: var(--light);
+  box-shadow: var(--general-box-shadow);
+  border-radius: var(--br-md);
+  border: var(--general-border);
+}
+
+/* ---- Otp Component ---- */
+.otpContainer {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+.otpInputStyle,
+.otpErrorStyle {
+  height: 57px;
+  width: 100% !important;
+  font-size: 24px;
+  background: transparent;
+  border-radius: 8px;
+  caret-color: var(--light);
+  color: var(--light);
+}
+
+.otpInputStyle {
+  border: 1px solid var(--border);
+}
+.otpErrorStyle {
+  border: 1px solid rgba(190, 17, 17, 0.4);
+}
+.otpFocusStyle {
+  outline: none;
+  border: 2px solid var(--text-selected-number);
+}
+
+.otpDisabledStyle {
+  opacity: 0.3;
+  user-select: none;
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 1199px) and (min-width: 991px) {
+  .otpInputStyle {
+    height: 2.5em;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .otpInputStyle {
+    height: 2.5em;
+  }
+  .magicModal {
+    padding: 15px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .otpInputStyle {
+    height: 1.85em;
+  }
+  .magicModalContent {
+    padding: 15px;
+  }
+}
+/* ---- Otp Component ---- */

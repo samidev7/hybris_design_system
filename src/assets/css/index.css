@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import "@wojtekmaj/react-daterange-picker/dist/DateRangePicker.css";
+@import "react-calendar/dist/Calendar.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-color: var(--text-primary) transparent; /* Only Firefox */
+}
+
+:root {
+  /* Colors */
+  --light: #ffffff;
+  --dark: #000000;
+  --text-primary: #1b1b1b;
+  --text-clear: #616161;
+  --text-selected-sidebar: #111;
+  --input-otp-border: #d4d4d4;
+
+  --error: #fd3d3d;
+  --success: #39ff71;
+  --warning: #ffd600;
+  --warning-dark: #de9731;
+
+  /* Animation */
+  --fadeIn: fadeIn 0.3s ease;
+  --fadeInAndScrollUp: fadeInAndScrollUp 0.5s ease;
+  --fadeInAndScrollUpForSteps: fadeInAndScrollUpForSteps 1s ease;
+  --appearScale: animationAppear 0.5s ease;
+
+  /* Border Radius */
+  --br-sm: 4px;
+  --br-md: 8px;
+  --br-lg: 16px;
+
+  /* Border */
+  --general-border: 1px solid rgba(152, 152, 152, 0.26);
+
+  /* Padding */
+  --container-padding-sm: 8px;
+  --container-padding-md: 24px;
+  --container-padding-lg: 32px;
+  --inner-padding-xs: 8px;
+  --inner-padding-sm: 16px;
+  --inner-padding-md: 24px;
+  --inner-padding-lg: 36px;
+  --button-padding-block: 16px;
+  --button-padding-inline: 32px;
+
+  /* Margin */
+  --vertical-component-margin-sm: 35px;
+  --vertical-component-margin-md: 50px;
+
+  /* Shadow */
+  --general-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+
+  /* Bold */
+  --bold-xs: 400;
+  --bold-sm: 500;
+  --bold-md: 600;
+  --bold-lg: 700;
+
+  /* Transition */
+  --transition: all 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+
+body {
+  overflow: hidden;
+  scroll-behavior: smooth;
+  font-size: var(--font-size-base);
+  font-family: "Montserrat", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background-clip: content-box;
+  background-color: rgba(0, 0, 0, 0);
+  width: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 1px solid transparent;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: var(--font-size-xxxl);
+}
+
+h2 {
+  font-size: var(--font-size-xxl);
+}
+
+h3 {
+  font-size: var(--font-size-xl);
+}
+
+h4 {
+  font-size: var(--font-size-lg);
+}
+
+h5 {
+  font-size: var(--font-size-md);
+}
+
+h6 {
+  font-size: var(--font-size-base);
+  font-weight: var(--bold-md);
+}
+
+input::placeholder {
+  font-size: 14px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Fluid font size variables, for browsers that support clamp (min, preferred, max)*/
+@supports (font-size: clamp(1rem, 1vw, 1rem)) {
+  :root {
+    /* 13.12px, 10.88px, 12.8px */
+    --font-size-sm: clamp(0.82rem, 0.1vw + 0.68rem, 0.8rem);
+    /* 14.08px, 13.44px, 16.96  */
+    --font-size-base: clamp(0.88rem, 0.19vw + 0.84rem, 1.06rem);
+    /* 17.44px, 16.48px, 22.72px */
+    --font-size-md: clamp(1.09rem, 0.32vw + 1.03rem, 1.42rem);
+    /* 21.92px, 20.16px, 30.24px */
+    --font-size-lg: clamp(1.37rem, 0.52vw + 1.26rem, 1.89rem);
+    /* 27.36px, 24.8px, 40.32px */
+    --font-size-xl: clamp(1.71rem, 0.81vw + 1.55rem, 2.52rem);
+    /* 34.24px, 30.24px, 53.6px */
+    --font-size-xxl: clamp(2.14rem, 1.22vw + 1.89rem, 3.35rem);
+    /* 42.72px, 36.96px, 71.52px */
+    --font-size-xxxl: clamp(2.67rem, 1.8vw + 2.31rem, 4.47rem);
+  }
+}
+
+/* Fallback variables for browsers that don't support clamp */
+@supports not (font-size: clamp(1rem, 1vw, 1rem)) {
+  :root {
+    --font-size-sm: 0.82rem;
+    --font-size-base: 0.88rem;
+    --font-size-md: 1.09rem;
+    --font-size-lg: 1.37rem;
+    --font-size-xl: 1.71rem;
+    --font-size-xxl: 2.14rem;
+    --font-size-xxxl: 2.67rem;
+  }
+  @media screen and (min-width: 1920px) {
+    :root {
+      --font-size-sm: 0.82rem;
+      --font-size-base: 1.06rem;
+      --font-size-md: 1.42rem;
+      --font-size-lg: 1.89rem;
+      --font-size-xl: 2.52rem;
+      --font-size-xxl: 3.35rem;
+      --font-size-xxxl: 4.47rem;
+    }
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInAndScrollUp {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInAndScrollUpForSteps {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes animationAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

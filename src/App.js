@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+
+// Components
+import NotFound from "./components/advanced/notFound/NotFound";
+
+// Libraries
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// Data
+import { routeComponents, paths, sidebarRoutes } from "./data/routes";
+
+// Contexts
+import { RoutesContext } from "./contexts/RoutesContext";
+import GeneralInfoContext from "./contexts/GeneralInfoContext";
+import { PricesProvider } from "./contexts/PricesContext";
 
 function App() {
+  const [generalInfo, setGeneralInfo] = useState({});
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <PricesProvider>
+      <BrowserRouter>
+        <RoutesContext.Provider value={{ paths, sidebarRoutes }}>
+          <GeneralInfoContext.Provider value={[generalInfo, setGeneralInfo]}>
+            <Routes>
+              {routeComponents}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </GeneralInfoContext.Provider>
+        </RoutesContext.Provider>
+      </BrowserRouter>
+    </PricesProvider>
   );
 }
 
